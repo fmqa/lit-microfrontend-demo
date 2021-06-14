@@ -1,0 +1,28 @@
+{
+  "name": "kickerapp",
+  "version": "1.0.0",
+  "description": "Kicker application",
+  "scripts": {
+    "build:client": "rollup -c",
+    "build:client:watch": "rollup -c -w",
+    "install:server": "cd server && python3.8 -m venv virtualenv && . virtualenv/bin/activate && pip install -U pip setuptools && pip install -e .",
+    "start:server": "cd server && . virtualenv/bin/activate && python -B -m kickerapp --assets=../output",
+    "start": "concurrently npm:start:server npm:build:client:watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^19.0.0",
+    "@rollup/plugin-html": "^0.2.3",
+    "@rollup/plugin-node-resolve": "^13.0.0",
+    "@rollup/plugin-typescript": "^8.2.1",
+    "@tsconfig/recommended": "^1.0.1",
+    "concurrently": "^6.2.0",
+    "rollup": "^2.51.2",
+    "typescript": "^4.3.2"
+  },
+  "dependencies": {
+    "lit": "^2.0.0-rc.2",
+    "rxjs": "^7.0.0"
+  }
+}
